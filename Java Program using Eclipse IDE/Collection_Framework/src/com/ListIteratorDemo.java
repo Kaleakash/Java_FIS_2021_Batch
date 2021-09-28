@@ -31,6 +31,10 @@ public class ListIteratorDemo {
 		Object obj = li.previous();
 		System.out.println(obj);
 	}
+	while(li.hasNext()) {
+		Object obj = li.next();
+		System.out.println(obj);
+	}
 	}
 
 }
