@@ -9,14 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.Employee;
+import resource.DbConnection;
 
 public class EmployeeDao {
-
+		Connection con;
+		public EmployeeDao() {
+			//DbConnection obj = new DbConnection();
+			//con = obj.getDbConnection();
+			con = DbConnection.getDbConnection();
+		}
 			public List<Employee> rertieveEmployeeDetails() {
 				List<Employee> listOfEmp = new ArrayList<>();
 				try {
-					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fisdb", "root", "root@123");
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("select * from employee");
 					while(rs.next()) {
@@ -34,8 +38,6 @@ public class EmployeeDao {
 			
 			public int storeEmployeeDetails(Employee emp) {
 				try {
-					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fisdb", "root", "root@123");
 					PreparedStatement pstmt = con.prepareStatement("insert into employee values(?,?,?)");
 					pstmt.setInt(1, emp.getId());
 					pstmt.setString(2, emp.getName());
