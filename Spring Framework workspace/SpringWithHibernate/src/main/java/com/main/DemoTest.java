@@ -12,12 +12,17 @@ public class DemoTest {
 		// TODO Auto-generated method stub
 ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 Employee emp = (Employee)ac.getBean("employee");
-emp.setId(7);
-emp.setName("Raju");
-emp.setSalary(52000);
+emp.setId(1);
+//emp.setName("Raju");
+emp.setSalary(5000);
 EmployeeService es = (EmployeeService)ac.getBean("employeeService");
-String result= es.storeEmployeeDetails(emp);
-System.out.println(result);
+//String result= es.storeEmployeeDetails(emp);
+//System.out.println(result);
+//		es.getEmployeDetails().forEach(e->System.out.println(e.getId()+" "+e.getName()+" "+e.getSalary()));
+//	String result = es.deleteEmployeeRecord(100);
+//	System.out.println(result);
+	String result = es.updateEmployeeRecord(emp);
+	System.out.println(result);
 	}
 
 }

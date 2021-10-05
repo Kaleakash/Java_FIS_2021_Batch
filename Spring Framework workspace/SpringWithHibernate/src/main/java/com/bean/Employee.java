@@ -2,11 +2,13 @@ package com.bean;
 
 import javax.persistence.Entity;		// import package as javax.persistence 
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
+@Table(name="employee")
 public class Employee {
 @Id						// column which is primary key
 private int id;
