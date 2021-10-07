@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,10 @@ public class CustomerService {
 			customerRepository.save(cc);
 			return "Record stored successfully";
 		}
-		
+	}
+	
+	public List<Customer> getAllCustomer() {
+		return customerRepository.findAll();
 	}
 }
+
